@@ -300,13 +300,25 @@
     }
 
     .hero-wordmark {
-      color: #f5f8ff;
-      text-shadow: 0 0 18px rgba(56, 189, 248, 0.08);
+      margin-bottom: 0.12em;
+      font-family: "Inter", sans-serif;
+      font-size: 0.74em;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: transparent;
+      background: linear-gradient(180deg, #fbfcff 0%, #d7ddf3 42%, #a88dff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow:
+        0 0 24px rgba(168, 85, 247, 0.18),
+        0 0 42px rgba(56, 189, 248, 0.08);
+      animation: heroWordmarkGlow 6.4s ease-in-out infinite;
     }
 
     .hero-line {
-      font-size: 0.86em;
-      line-height: 0.92;
+      font-size: 0.72em;
+      line-height: 0.98;
     }
 
     .hero-line-one {
@@ -377,6 +389,7 @@
       justify-content: center;
       gap: 1rem;
       margin-top: 2rem;
+      width: 100%;
     }
 
     .button {
@@ -400,6 +413,15 @@
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #05070f;
       box-shadow: 0 18px 48px rgba(139, 92, 255, 0.22);
+    }
+
+    .hero-actions .button-primary {
+      min-height: 4rem;
+      min-width: 14.5rem;
+      padding: 0 2.2rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      box-shadow: 0 22px 56px rgba(139, 92, 255, 0.3);
     }
 
     .button-secondary {
@@ -1545,6 +1567,17 @@
       50% { transform: translate3d(0, -8px, 0); }
     }
 
+    @keyframes heroWordmarkGlow {
+      0%, 100% {
+        filter: brightness(1) saturate(1);
+        transform: translateY(0);
+      }
+      50% {
+        filter: brightness(1.08) saturate(1.08);
+        transform: translateY(-2px);
+      }
+    }
+
     @keyframes panelWave {
       0%, 100% { transform: translateY(0) scaleY(0.92); }
       50% { transform: translateY(-4px) scaleY(1.06); }
@@ -1768,7 +1801,6 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#services">Explore Services</a>
-              <a class="button button-secondary" href="#contact">Start a Conversation</a>
             </div>
             <div class="hero-stats">
               <div>
@@ -2059,7 +2091,6 @@
               </div>
 
               <div class="contact-actions reveal">
-                <a class="button button-primary" href="mailto:hello@axlora.com">Start the Conversation</a>
                 <a class="button button-secondary" href="#top">Back to Top</a>
                 <p class="contact-note">Strategy call, project scope, or partnership enquiry.</p>
               </div>
