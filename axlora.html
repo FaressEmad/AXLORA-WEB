@@ -502,18 +502,18 @@
     }
 
     .service-copy h3 {
-      max-width: 13ch;
+      max-width: 16ch;
       color: #f6f8ff;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.1rem, 3vw, 3.3rem);
+      font-size: clamp(1.8rem, 2.45vw, 2.8rem);
       font-weight: 700;
-      line-height: 1.02;
-      letter-spacing: -0.035em;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
       text-wrap: balance;
     }
 
     .service-stage[data-side="right"] .service-copy h3 {
-      max-width: 13ch;
+      max-width: 16ch;
     }
 
     .service-copy p {
@@ -636,7 +636,7 @@
     }
 
     .ai-visual {
-      width: min(100%, 42rem);
+      width: min(100%, 46rem);
     }
 
     .workflow-grid {
@@ -651,50 +651,56 @@
 
     .ai-core {
       position: absolute;
-      inset: 19% 8% 18%;
+      inset: 16% 5% 15%;
     }
 
     .workflow-map {
       position: absolute;
       inset: 0;
+      --workflow-card-h: 5.35rem;
+      --workflow-mid-y: calc(35% + (var(--workflow-card-h) / 2));
     }
 
     .workflow-step {
       position: absolute;
-      width: 18%;
-      min-height: 4rem;
-      padding: 0.7rem;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 0.9rem;
-      background: rgba(255, 255, 255, 0.025);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      width: 20%;
+      min-height: var(--workflow-card-h);
+      padding: 0.95rem 0.9rem;
+      border: 1px solid rgba(190, 170, 255, 0.18);
+      border-radius: 1rem;
+      background:
+        linear-gradient(180deg, rgba(61, 36, 111, 0.82), rgba(17, 13, 34, 0.92));
+      box-shadow:
+        0 18px 42px rgba(10, 8, 24, 0.42),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        inset 0 1px 0 rgba(239, 230, 255, 0.08);
       display: grid;
       align-content: center;
-      gap: 0.3rem;
+      gap: 0.38rem;
       animation: screenFloat 4.4s ease-in-out infinite;
     }
 
     .workflow-step strong {
-      color: #eef4ff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      color: #f7f2ff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .workflow-step span {
-      color: #9fb0d4;
-      font-size: 0.64rem;
-      line-height: 1.35;
+      color: #d2c4f7;
+      font-size: 0.78rem;
+      line-height: 1.4;
     }
 
     .workflow-step.step-one {
-      left: 3%;
+      left: 1%;
       top: 35%;
     }
 
     .workflow-step.step-two {
-      left: 28%;
+      left: 27%;
       top: 35%;
       animation-delay: -0.8s;
     }
@@ -707,13 +713,13 @@
 
     .workflow-step.step-four {
       left: 79%;
-      top: 24%;
+      top: 20%;
       animation-delay: -1.2s;
     }
 
     .workflow-step.step-five {
       left: 79%;
-      top: 56%;
+      top: 58%;
       animation-delay: -2s;
     }
 
@@ -740,30 +746,30 @@
 
     .workflow-connector.c1 {
       left: 21%;
-      width: 7%;
-      top: calc(35% + 2rem);
+      width: 6%;
+      top: var(--workflow-mid-y);
     }
 
     .workflow-connector.c2 {
-      left: 46%;
-      width: 7%;
-      top: calc(35% + 2rem);
+      left: 47%;
+      width: 6%;
+      top: var(--workflow-mid-y);
     }
 
     .workflow-connector.branch-top {
-      left: 71%;
-      width: 13%;
-      top: calc(35% + 2rem);
-      transform: rotate(-36deg);
+      left: 73%;
+      width: 10%;
+      top: var(--workflow-mid-y);
+      transform: rotate(-49deg);
       transform-origin: left center;
       animation-delay: -0.2s;
     }
 
     .workflow-connector.branch-bottom {
-      left: 71%;
-      width: 13%;
-      top: calc(35% + 2rem);
-      transform: rotate(38deg);
+      left: 73%;
+      width: 12.5%;
+      top: var(--workflow-mid-y);
+      transform: rotate(60deg);
       transform-origin: left center;
     }
 
