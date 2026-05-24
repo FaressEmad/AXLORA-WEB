@@ -850,11 +850,18 @@
     }
 
     .data-visual .service-frame {
+      border-color: transparent;
       background: transparent;
     }
 
+    .data-visual .service-frame::before,
+    .data-visual .service-frame::after,
+    .data-visual .service-corner {
+      display: none;
+    }
+
     .data-visual {
-      width: min(100%, 42rem);
+      width: min(100%, 47rem);
     }
 
     .data-caption {
@@ -871,266 +878,218 @@
 
     .dashboard-shell {
       position: absolute;
-      inset: 16% 5% 12%;
+      inset: 11% 1% 8%;
       display: grid;
-      grid-template-columns: 6.1rem minmax(0, 1fr);
       gap: 1rem;
-    }
-
-    .dashboard-rail {
-      display: grid;
-      gap: 0.7rem;
-    }
-
-    .rail-card,
-    .dash-panel {
-      position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.022);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      overflow: hidden;
-    }
-
-    .rail-card {
-      display: grid;
-      align-content: center;
-      gap: 0.28rem;
-      padding: 0.85rem 0.8rem;
-    }
-
-    .rail-card::before,
-    .dash-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0.65rem;
-      border: 1px dashed rgba(255, 255, 255, 0.04);
-      border-radius: 0.75rem;
-      pointer-events: none;
-    }
-
-    .rail-card strong {
-      color: #eef3ff;
-      font-family: "Inter", sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-
-    .dashboard-main {
-      display: grid;
-      grid-template-columns: 1.02fr 1.26fr 1fr;
-      grid-template-rows: 1fr 1.08fr;
-      gap: 0.85rem;
-    }
-
-    .dash-panel {
-      padding: 0.9rem;
-    }
-
-    .dash-value {
-      color: #f7f9ff;
-      font-family: "Inter", sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
-
-    .donut-panel {
-      display: grid;
-      place-items: center;
-    }
-
-    .donut-ring {
-      position: relative;
-      width: 5.8rem;
-      height: 5.8rem;
-      border-radius: 50%;
-      background: conic-gradient(from 210deg, #8b5cff 0 48%, #38bdf8 48% 76%, rgba(255, 255, 255, 0.08) 76% 100%);
-      box-shadow: 0 0 26px rgba(139, 92, 255, 0.15);
-    }
-
-    .donut-ring::before {
-      content: "";
-      position: absolute;
-      inset: 0.9rem;
-      border-radius: 50%;
-      background: rgba(3, 6, 18, 0.96);
-      box-shadow: inset 0 0 18px rgba(139, 92, 255, 0.12);
-    }
-
-    .donut-center {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .donut-center strong {
-      color: #f4f7ff;
-      font-size: 1rem;
-      letter-spacing: -0.05em;
-    }
-
-    .trend-panel,
-    .bars-panel {
-      display: grid;
-      align-content: stretch;
-    }
-
-    .trend-grid,
-    .bars-grid,
-    .matrix-grid {
-      position: relative;
-      border-radius: 0.8rem;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 28px 28px;
-      overflow: hidden;
-    }
-
-    .trend-grid {
-      height: 7rem;
-    }
-
-    .trend-grid::before {
-      content: "";
-      position: absolute;
-      inset: auto 8% 15% 8%;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .trend-line {
-      position: absolute;
-      left: 10%;
-      right: 8%;
-      bottom: 15%;
-      top: 18%;
-      background: linear-gradient(180deg, rgba(139, 92, 255, 0.18), rgba(139, 92, 255, 0));
-      clip-path: polygon(0 78%, 12% 66%, 22% 70%, 34% 40%, 46% 50%, 58% 28%, 70% 36%, 84% 12%, 100% 18%, 100% 100%, 0 100%);
-      opacity: 0.95;
-    }
-
-    .trend-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(139, 92, 255, 0.55));
-      clip-path: polygon(0 78%, 12% 66%, 22% 70%, 34% 40%, 46% 50%, 58% 28%, 70% 36%, 84% 12%, 100% 18%, 100% 24%, 84% 18%, 70% 42%, 58% 34%, 46% 56%, 34% 46%, 22% 76%, 12% 72%, 0 84%);
-      animation: chartShift 3.6s ease-in-out infinite;
-    }
-
-    .stats-panel {
-      display: grid;
-      gap: 0.6rem;
       align-content: start;
+      animation: dashboardFloat 7.2s ease-in-out infinite;
     }
 
-    .stats-tile {
-      position: relative;
-      padding: 0.75rem 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 0.85rem;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .stats-tile strong {
-      display: block;
-      color: #f2f5ff;
-      font-size: 1rem;
-      letter-spacing: -0.04em;
-    }
-
-    .matrix-panel {
+    .dashboard-grid {
       display: grid;
-      align-content: stretch;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
     }
 
-    .matrix-grid {
-      display: grid;
-      gap: 0.45rem;
-      padding: 0.8rem;
-    }
-
-    .matrix-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .matrix-row b {
-      color: #f1f4ff;
-      font-size: 0.64rem;
-      letter-spacing: 0.02em;
-    }
-
-    .matrix-row i {
-      display: block;
-      height: 0.32rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
+    .dashboard-card {
+      min-height: 10rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0.35rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0)),
+        rgba(34, 24, 58, 0.28);
       overflow: hidden;
-      font-style: normal;
+      animation: dashboardCardLift 6.6s ease-in-out infinite;
     }
 
-    .matrix-row i::before {
-      content: "";
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.9), rgba(139, 92, 255, 0.9));
-      animation: chartShift 3.2s ease-in-out infinite;
-      transform-origin: left center;
+    .dashboard-card h4 {
+      color: #dbe3ef;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .matrix-row.r1 i::before { width: 78%; }
-    .matrix-row.r2 i::before { width: 64%; animation-delay: -0.4s; }
-    .matrix-row.r3 i::before { width: 88%; animation-delay: -0.8s; }
-    .matrix-row.r4 i::before { width: 56%; animation-delay: -1.2s; }
-
-    .bars-panel {
-      grid-column: 2 / 4;
-      grid-row: 2 / 3;
+    .dashboard-chart {
+      position: relative;
+      margin-top: 0.75rem;
+      height: 8.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
-    .bars-grid {
-      height: 7.8rem;
+    .bar-chart {
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 0.7rem;
-      padding: 1rem 1rem 0.8rem;
+      gap: 0.55rem;
+      padding: 0 0.4rem 0.9rem;
     }
 
-    .bars-grid::before {
+    .bar-chart::before,
+    .line-chart::before,
+    .mini-area::before {
       content: "";
       position: absolute;
-      left: 0.9rem;
-      right: 0.9rem;
-      bottom: 0.8rem;
+      left: 0.35rem;
+      right: 0.35rem;
+      bottom: 0.85rem;
       height: 1px;
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .dash-bar {
-      position: relative;
+    .bar-chart span {
       flex: 1;
-      border-radius: 0.6rem 0.6rem 0 0;
-      background: linear-gradient(180deg, rgba(56, 189, 248, 0.3), rgba(139, 92, 255, 0.86));
+      border-radius: 0.2rem 0.2rem 0 0;
+      background: linear-gradient(180deg, rgba(198, 170, 255, 0.96), rgba(126, 79, 255, 0.76));
       box-shadow: 0 0 18px rgba(139, 92, 255, 0.12);
-      animation: dataBarPulse 2.8s ease-in-out infinite;
+      transform-origin: bottom center;
+      animation: dashboardBarWave 4.6s ease-in-out infinite;
     }
 
-    .dash-bar.b1 { height: 34%; }
-    .dash-bar.b2 { height: 56%; animation-delay: -0.5s; }
-    .dash-bar.b3 { height: 72%; animation-delay: -1s; }
-    .dash-bar.b4 { height: 48%; animation-delay: -1.5s; }
-    .dash-bar.b5 { height: 82%; animation-delay: -2s; }
+    .bar-chart span:nth-child(1) { height: 26%; }
+    .bar-chart span:nth-child(2) { height: 22%; animation-delay: -0.18s; }
+    .bar-chart span:nth-child(3) { height: 24%; animation-delay: -0.36s; }
+    .bar-chart span:nth-child(4) { height: 28%; animation-delay: -0.54s; }
+    .bar-chart span:nth-child(5) { height: 62%; animation-delay: -0.72s; }
+    .bar-chart span:nth-child(6) { height: 88%; animation-delay: -0.9s; }
+    .bar-chart span:nth-child(7) { height: 82%; animation-delay: -1.08s; }
+    .bar-chart span:nth-child(8) { height: 61%; animation-delay: -1.26s; }
+    .bar-chart span:nth-child(9) { height: 60%; animation-delay: -1.44s; }
+    .bar-chart span:nth-child(10) { height: 58%; animation-delay: -1.62s; }
+    .bar-chart span:nth-child(11) { height: 66%; animation-delay: -1.8s; }
+    .bar-chart span:nth-child(12) { height: 91%; animation-delay: -1.98s; }
+
+    .line-chart svg,
+    .mini-area svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      animation: dashboardLineDrift 6s ease-in-out infinite;
+    }
+
+    .metric-legend {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 0.45rem;
+      color: #aeb8cc;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .metric-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 0.42rem;
+      height: 0.42rem;
+      margin-right: 0.35rem;
+      border-radius: 50%;
+      vertical-align: 0.02rem;
+    }
+
+    .metric-legend span:first-child::before {
+      background: #b28cff;
+    }
+
+    .metric-legend span:last-child::before {
+      background: #f3f0ff;
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: 0.92fr 1fr 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .dashboard-statcard {
+      min-height: 8.6rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0.35rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0)),
+        rgba(34, 24, 58, 0.28);
+      animation: dashboardCardLift 7.4s ease-in-out infinite;
+    }
+
+    .dashboard-statcard h5 {
+      color: #dbe3ef;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gauge {
+      position: relative;
+      width: 6.4rem;
+      height: 6.4rem;
+      margin: 0.8rem auto 0;
+      border-radius: 50%;
+      background: conic-gradient(#7f5cff 0 36%, #c79eff 36% 68%, #f3f0ff 68% 100%);
+    }
+
+    .gauge::before {
+      content: "";
+      position: absolute;
+      inset: 0.82rem;
+      border-radius: 50%;
+      background: rgba(12, 14, 26, 0.98);
+    }
+
+    .gauge::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0.22rem;
+      height: 2.2rem;
+      border-radius: 999px;
+      background: #dfe7f8;
+      transform-origin: 50% 88%;
+      transform: translate(-50%, -88%) rotate(18deg);
+      box-shadow: 0 0 14px rgba(223, 231, 248, 0.15);
+      animation: dashboardNeedle 5.8s ease-in-out infinite;
+    }
+
+    .gauge-center {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+    }
+
+    .gauge-center strong {
+      margin-top: 1.95rem;
+      color: #f5f8ff;
+      font-size: 0.96rem;
+      font-weight: 800;
+    }
+
+    .stat-value {
+      margin-top: 0.8rem;
+      color: #f5f8ff;
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+    }
+
+    .mini-area {
+      margin-top: 0.65rem;
+      height: 4.8rem;
+      position: relative;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
 
     .screen-stack {
       position: relative;
@@ -1682,6 +1641,37 @@
       }
     }
 
+    @keyframes dashboardFloat {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -8px, 0); }
+    }
+
+    @keyframes dashboardCardLift {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+      50% {
+        transform: translate3d(0, -4px, 0);
+        box-shadow: 0 18px 34px rgba(10, 8, 24, 0.18);
+      }
+    }
+
+    @keyframes dashboardBarWave {
+      0%, 100% { transform: scaleY(1); opacity: 0.92; }
+      50% { transform: scaleY(1.06); opacity: 1; }
+    }
+
+    @keyframes dashboardLineDrift {
+      0%, 100% { transform: translateX(0); opacity: 0.94; }
+      50% { transform: translateX(0.18rem); opacity: 1; }
+    }
+
+    @keyframes dashboardNeedle {
+      0%, 100% { transform: translate(-50%, -88%) rotate(12deg); }
+      50% { transform: translate(-50%, -88%) rotate(26deg); }
+    }
+
     @keyframes panelWave {
       0%, 100% { transform: translateY(0) scaleY(0.92); }
       50% { transform: translateY(-4px) scaleY(1.06); }
@@ -1740,22 +1730,17 @@
         justify-self: stretch;
       }
 
-      .dashboard-shell {
-        grid-template-columns: 5rem minmax(0, 1fr);
+      .dashboard-windowbar,
+      .dashboard-stats {
+        grid-template-columns: 1fr;
       }
 
-      .dashboard-main {
-        grid-template-columns: 1fr 1fr;
+      .dashboard-titlebar {
+        padding: 0.85rem 1rem;
       }
 
-      .stats-panel {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-      }
-
-      .bars-panel {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
+      .dashboard-grid {
+        grid-template-columns: 1fr;
       }
 
       .contact-actions {
@@ -1818,28 +1803,6 @@
 
       .brand-copy span {
         letter-spacing: 0.24em;
-      }
-
-      .dashboard-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .dashboard-rail {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .dashboard-main {
-        grid-template-columns: 1fr;
-      }
-
-      .bars-panel,
-      .stats-panel {
-        grid-column: auto;
-        grid-row: auto;
-      }
-
-      .dash-panel {
-        min-height: 9rem;
       }
 
       .outcome-item {
@@ -2032,59 +1995,93 @@
                 <span class="service-corner bl"></span>
                 <span class="service-corner br"></span>
                 <div class="dashboard-shell">
-                  <div class="dashboard-rail">
-                    <div class="rail-card">
-                      <strong>94%</strong>
+                  <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                      <h4>Revenue Trend Widget</h4>
+                      <div class="dashboard-chart bar-chart">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
                     </div>
-                    <div class="rail-card">
-                      <strong>18</strong>
-                    </div>
-                    <div class="rail-card">
-                      <strong>6.2h</strong>
-                    </div>
-                    <div class="rail-card">
-                      <strong>+28%</strong>
+
+                    <div class="dashboard-card">
+                      <h4>Visits And Ad Clicks</h4>
+                      <div class="metric-legend">
+                        <span>Visits</span>
+                        <span>Ad Clicks</span>
+                      </div>
+                      <div class="dashboard-chart line-chart">
+                        <svg viewBox="0 0 320 170" preserveAspectRatio="none" aria-hidden="true">
+                          <polyline points="18,96 46,108 74,88 102,82 130,70 158,72 186,78 214,84 242,74 270,76 302,34" fill="none" stroke="#b28cff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          <polyline points="18,112 46,118 74,114 102,113 130,62 158,70 186,82 214,74 242,76 270,78 302,48" fill="none" stroke="#f3f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          <circle cx="18" cy="96" r="4" fill="#b28cff"/>
+                          <circle cx="74" cy="88" r="4" fill="#b28cff"/>
+                          <circle cx="130" cy="70" r="4" fill="#b28cff"/>
+                          <circle cx="214" cy="84" r="4" fill="#b28cff"/>
+                          <circle cx="302" cy="34" r="4" fill="#b28cff"/>
+                          <circle cx="18" cy="112" r="4" fill="#f3f0ff"/>
+                          <circle cx="130" cy="62" r="4" fill="#f3f0ff"/>
+                          <circle cx="214" cy="74" r="4" fill="#f3f0ff"/>
+                          <circle cx="302" cy="48" r="4" fill="#f3f0ff"/>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <div class="dashboard-main">
-                    <div class="dash-panel donut-panel">
-                      <div class="donut-ring">
-                        <div class="donut-center">
-                          <strong>87%</strong>
+
+                  <div class="dashboard-stats">
+                    <div class="dashboard-statcard">
+                      <h5>Cost Per Click</h5>
+                      <div class="gauge">
+                        <div class="gauge-center">
+                          <strong>$3.76</strong>
                         </div>
                       </div>
                     </div>
-                    <div class="dash-panel trend-panel">
-                      <div class="trend-grid">
-                        <div class="trend-line"></div>
+
+                    <div class="dashboard-statcard">
+                      <h5>Ad Impressions</h5>
+                      <div class="stat-value">35,567</div>
+                      <div class="mini-area">
+                        <svg viewBox="0 0 220 96" preserveAspectRatio="none" aria-hidden="true">
+                          <path d="M0 72 L28 86 L56 70 L84 62 L112 48 L140 62 L168 56 L196 34 L220 36 L220 96 L0 96 Z" fill="rgba(139, 92, 255, 0.58)"/>
+                          <polyline points="0,72 28,86 56,70 84,62 112,48 140,62 168,56 196,34 220,36" fill="none" stroke="#c9a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                       </div>
                     </div>
-                    <div class="dash-panel stats-panel">
-                      <div class="stats-tile">
-                        <strong>1.8k</strong>
-                      </div>
-                      <div class="stats-tile">
-                        <strong>12</strong>
-                      </div>
-                      <div class="stats-tile">
-                        <strong>4</strong>
-                      </div>
-                    </div>
-                    <div class="dash-panel matrix-panel">
-                      <div class="matrix-grid">
-                        <div class="matrix-row r1"><i></i><b>78</b></div>
-                        <div class="matrix-row r2"><i></i><b>64</b></div>
-                        <div class="matrix-row r3"><i></i><b>88</b></div>
-                        <div class="matrix-row r4"><i></i><b>56</b></div>
+
+                    <div class="dashboard-statcard">
+                      <h5>Total Pageviews</h5>
+                      <div class="stat-value">252,292</div>
+                      <div class="mini-area bar-chart">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                       </div>
                     </div>
-                    <div class="dash-panel bars-panel">
-                      <div class="bars-grid">
-                        <div class="dash-bar b1"></div>
-                        <div class="dash-bar b2"></div>
-                        <div class="dash-bar b3"></div>
-                        <div class="dash-bar b4"></div>
-                        <div class="dash-bar b5"></div>
+
+                    <div class="dashboard-statcard">
+                      <h5>Total Visits</h5>
+                      <div class="stat-value">57,841</div>
+                      <div class="mini-area">
+                        <svg viewBox="0 0 220 96" preserveAspectRatio="none" aria-hidden="true">
+                          <path d="M0 74 L28 66 L56 72 L84 50 L112 62 L140 68 L168 46 L196 52 L220 36 L220 96 L0 96 Z" fill="rgba(169, 135, 255, 0.34)"/>
+                          <polyline points="0,74 28,66 56,72 84,50 112,62 140,68 168,46 196,52 220,36" fill="none" stroke="#f3f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                       </div>
                     </div>
                   </div>
